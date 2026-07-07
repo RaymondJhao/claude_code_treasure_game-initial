@@ -57,3 +57,35 @@ Most of this UI kit is not currently wired into the app — `Button`, `Input`, `
 - `src/index.css` is a **compiled Tailwind CSS v4 build output** (large, generated file with `@layer properties`/utility classes) — do not hand-edit its generated utility layers. It is the stylesheet actually loaded by `main.tsx`.
 - `src/styles/globals.css` defines the design-token CSS variables (`--background`, `--primary`, `--radius`, light/dark theme via `.dark`, and the `@theme inline` mapping used by Tailwind v4) but **is not imported anywhere** — it's a leftover template file. If theme tokens need to change, confirm which file is actually taking effect before editing.
 - `src/guidelines/Guidelines.md` is an empty template for project-specific design-system rules (currently unfilled).
+
+## 文件撰寫規範 (Documentation Standards)
+
+當需要產生、更新或撰寫任何 Markdown (`.md`) 檔案時，必須嚴格遵守以下排版原則。
+
+### 全域排版規則 (Global Markdown Rules)
+
+1. **結構清晰**：必須使用 `###` 區分大階段，不可有過長且無分段的純文字段落。
+2. **逐步呈現 (Step-by-step)**：
+   - 具有先後順序的操作，使用數字清單 (`1.`, `2.`)。
+   - 需要人工確認的待辦事項，使用核取方塊 (`- [ ]`)。
+3. **視覺引導**：將**檔案名稱**、**變數/Hook 名稱**與**關鍵操作動詞**加上**粗體**標示。
+4. **程式碼隔離**：所有終端機指令或程式碼片段，都必須使用獨立的 ``` 區塊包裹，並標註語言。
+
+### 特定文件模板 (Specific Templates)
+
+#### 1. React Hooks 說明文件模板
+
+當撰寫自訂 Hook 的文件（例如 `src/hooks/` 目錄下的文件）時，強制套用此結構：
+
+- **簡介**：一句話說明這個 Hook 的用途。
+- **參數與回傳值 (API)**：用表格列出傳入參數與回傳物件的型別。
+- **使用範例 (Usage)**：提供一段簡短的 React 元件程式碼示範。
+- **實作步驟 (Implementation Steps)**：以 Step-by-step 格式列出此 Hook 的內部核心邏輯。
+
+#### 2. 開發 SOP 或部署腳本模板
+
+當撰寫執行流程或腳本文件（如 `deploy.md` 或環境建置文件）時，強制套用此結構：
+
+- **前置作業 (Prerequisites)**：使用 `- [ ]` 列出執行前需要的環境或權限。
+- **執行步驟 (Execution)**：嚴格使用大標題切分階段，並用數字清單列出每個步驟的具體指令。
+- **驗證方式 (Verification)**：說明如何確認步驟已成功執行。
