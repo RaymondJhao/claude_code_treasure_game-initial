@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node --experimental-sqlite server/index.js)",
+      "Bash(curl -s -i \"http://localhost:3001/api/me\")",
+      "Bash(curl *)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(npx --yes vercel --prod --yes)",
+      "Bash(gh --version)",
+      "Bash(git --version)",
+      "Bash(git init *)",
+      "Bash(git branch *)"
+    ]
+  }
+}
